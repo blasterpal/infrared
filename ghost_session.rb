@@ -59,7 +59,7 @@ class GhostSession
   end
 
   def cookies_from_response (response)
-    @cookies = response.headers['Set-Cookie']
+    @cookies = response.headers['set-cookie']
   end
 
   def sushi(response)

@@ -1,5 +1,6 @@
 require 'faraday'
 require 'logger'
+require 'nokogiri'
 
 require 'infrared/logging'
 require 'infrared/development'
