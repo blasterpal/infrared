@@ -1,5 +1,15 @@
+require 'faraday'
+require 'logger'
+
+require 'infrared/logging'
+require 'infrared/development'
+require 'infrared/endpoints'
+require 'infrared/api'
 require "infrared/version"
 
 module Infrared
-  # Your code goes here...
+  def self.logger    
+     include Infrared::Logging
+     Infrared::Logging.logger
+  end
 end
