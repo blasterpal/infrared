@@ -30,6 +30,7 @@ module Infrared
     def login(email,password)
       first_load = connection.get(endpoint(:signin))
       set_headers(first_load) 
+      set_session(first_load)  
       body = {email: email, password: password}
       response = connection.post do |req|
         req.url endpoint(:signin)
@@ -47,11 +48,14 @@ module Infrared
     end
 
     def set_headers(response)
-      @headers.merge!(default_headers)
-      @headers.merge!(csrf_token_from_body(response.body))
-      @cookies = CGI::Cookie.parse(response.headers['set-cookie'])
-      headers.merge!({"Cookie" => "connect.sid=#{@cookies['connect.sid'].first}"})
-      # headers.merge!({"Cookie" => response.headers['set-cookie']})
+      headers.merge!(default_headers)
+      headers.merge!(set_session(response))
+      headers.merge!(csrf_token_from_body(response.body))
+    end
+
+    def set_session(response)
+      cookies = CGI::Cookie.parse(response.headers['set-cookie'])
+      cookies = ({"Cookie" => "connect.sid=#{cookies['connect.sid'].first}"})
     end
 
   end
