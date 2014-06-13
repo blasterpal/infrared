@@ -1,4 +1,4 @@
-class BaseModel
+class Infrared::BaseModel
   include ActiveModel::Serialization
   include ActiveModel::Validations
 
@@ -9,9 +9,12 @@ class BaseModel
     def connection
       @@connection
     end
-
+    
+    def all
+      connection.posts
+    end
     def find(id)
-      binding.pry
+      connection.post(id)
     end
   end
 

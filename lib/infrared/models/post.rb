@@ -1,4 +1,4 @@
-class Post < BaseModel
+class Infrared::Post < Infrared::BaseModel
   include ActiveModel::Serialization
   include ActiveModel::Validations
 
