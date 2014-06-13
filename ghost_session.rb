@@ -45,8 +45,7 @@ class GhostSession
       "Accept-Language" => "en-US,en;q=0.8",
       "Connection" => "keep-alive",
       "Content-Type" => 'application/x-www-form-urlencoded; charset=UTF-8',
-      "X-Requested-With" => "XMLHttpRequest" ,
-      :cookie => cookies}
+      "X-Requested-With" => "XMLHttpRequest"}
   end
 
   def csrf_token(url)
@@ -59,7 +58,7 @@ class GhostSession
   end
 
   def cookies_from_response (response)
-    @cookies = response.headers['set-cookie']
+    @cookies = response.headers['Set-Cookie']
   end
 
   def sushi(response)

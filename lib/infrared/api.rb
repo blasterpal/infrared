@@ -1,21 +1,23 @@
 module Infrared
   class API
 
-    include Infrared::Endpoints
-    include Infrared::Development #gate this somehow?
+    include Infrared::Defaults
+    include Infrared::Development #add into module elsewhere based ENV
 
-    attr_accessor :connection, :cookies, :headers
+    # class BadRequest < Faraday::Error; end
 
-    def initialize(email=nil, password=nil, url = nil)
-      # Infrared.logger.info "BLAG!"  
-      #
+    attr_accessor :connection, :cookies, :headers, :session
+
+    def initialize(url=nil,email=nil, password=nil)
+      @connection = conn(url)
       @headers = {}
-      start_conn(url)
       login(email,password)
     end
 
     private 
-    def start_conn(url)
+    # Exceptions
+    # URI::BadURIError
+    def conn(url)
       @connection = Faraday.new(:url => url) do |faraday|
         faraday.request  :url_encoded             # form-encode POST params
         faraday.response :logger                  # log requests to STDOUT
@@ -23,41 +25,34 @@ module Infrared
       end
     end
 
+    # Exceptions
+    # URI::Generic:0x007fe3b09dd578> (NoMethodError) 
     def login(email,password)
-      page_load = connection.get(endpoint(:signin))
-      headers.merge!(page_load.headers)
-      headers.merge!(csrf_token_from_body(page_load.body))
+      first_load = connection.get(endpoint(:signin))
+      set_headers(first_load) 
+      body = {email: email, password: password}
       response = connection.post do |req|
         req.url endpoint(:signin)
         req.headers  = headers
-        req.params = {email: email, password: password}
+        # req.params = {email: email, password: password}
+        req.body = body
       end
       binding.pry
     end
-  
-  def csrf_token_from_body(body)
-    # raises some exceptions here for parsing
-    t = ::Nokogiri::HTML(body).xpath('//meta[@name="csrf-param"]/@content')
-    {"X-CSRF-Token" => ((t && t.first)? t.first.value : '')}
-  end
 
-  def cookies_from_response (response)
-    @cookies = response.headers['set-cookie']
-  end
+    def csrf_token_from_body(body)
+      # raises some exceptions here for parsing
+      t = ::Nokogiri::HTML(body).xpath('//meta[@name="csrf-param"]/@content')
+      {"X-CSRF-Token" => ((t && t.first)? t.first.value : '')}
+    end
 
-
-  # def csrf_token(body)
-  #   @r = connection.get(endpoint(:signin))
-  #   cookies_from_response(@r)
-  #   n = sushi(@r.body.to_s)
-  #   t = n.xpath('//meta[@name="csrf-param"]/@content')
-  #   binding.pry
-  #   {"X-CSRF-Token" => ((t && t.first)? t.first.value : '')}
-  # end
-
-  # def sushi(response)
-  #   Nokogiri::HTML(response)
-  # end
+    def set_headers(response)
+      @headers.merge!(default_headers)
+      @headers.merge!(csrf_token_from_body(response.body))
+      @cookies = CGI::Cookie.parse(response.headers['set-cookie'])
+      headers.merge!({"Cookie" => "connect.sid=#{@cookies['connect.sid'].first}"})
+      # headers.merge!({"Cookie" => response.headers['set-cookie']})
+    end
 
   end
-  end
+end
