@@ -3,7 +3,6 @@ module Infrared
 
     include Infrared::Defaults
     include Infrared::Development #add into module elsewhere based ENV
-    include Infrared::GhostApi
 
     # class BadRequest < Faraday::Error; end
 
@@ -33,16 +32,16 @@ module Infrared
     def authorize(email,password)
       response = connection.post do |req|
         req.url endpoint(:signin)
-        req.headers  = create_headers_for_request(connection.get(endpoint(:signin)))
+        req.headers  = create_headers_for_authorize(connection.get(endpoint(:signin)))
         req.body = {email: email, password: password}
       end
-      @session_id = user_session_from_cookie(response.headers)
+      session_id = user_session_from_cookie(response.headers)
     end
 
-    def create_headers_for_request(response)
-      @headers.merge!(default_headers)
-      @headers.merge!(csrf_token_from_body(response.body))
-      @headers.merge!(user_session_from_cookie(response.headers))
+    def create_headers_for_authorize(response)
+      headers.merge!(default_headers)
+      headers.merge!(csrf_token_from_body(response.body))
+      headers.merge!(user_session_from_cookie(response.headers))
     end
     
     def csrf_token_from_body(body)
@@ -53,7 +52,7 @@ module Infrared
 
     # subset of cookies
     def user_session_from_cookie(headers)
-      @cookies = CGI::Cookie.parse(headers['set-cookie'])
+      cookies = CGI::Cookie.parse(headers['set-cookie'])
       {"Cookie" => "connect.sid=#{cookies['connect.sid'].first}"}
     end
 

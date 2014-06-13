@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   # gem,runtime
   spec.add_runtime_dependency 'faraday' 
   spec.add_runtime_dependency 'nokogiri'
+  spec.add_runtime_dependency 'activesupport-core-ext'
 
   # development
   spec.add_development_dependency "bundler", "~> 1.5"

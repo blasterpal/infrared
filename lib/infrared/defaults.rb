@@ -5,7 +5,9 @@ module Infrared
     ENDPOINTS = 
       {
       signin: '/ghost/signin/',
-      get_posts: '/ghost/api/v0.1/posts/'
+      get_posts: '/ghost/api/v0.1/posts/',
+      get_post: '/ghost/api/v0.1/posts/' ,#id at end
+      post_post: '/ghost/api/v0.1/posts'
     }
 
     def endpoint(key)
