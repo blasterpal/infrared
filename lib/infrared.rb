@@ -1,3 +1,4 @@
+# external gems
 require 'cgi'
 require 'faraday'
 require 'faraday-cookie_jar'
@@ -6,7 +7,7 @@ require 'nokogiri'
 require 'activemodel'
 require 'json'
 
-
+# app requires
 require 'infrared/session'
 require 'infrared/utils'
 require 'infrared/logging'
