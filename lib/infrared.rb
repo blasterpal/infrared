@@ -1,11 +1,13 @@
 require 'cgi'
 require 'faraday'
+require 'faraday-cookie_jar'
 require 'logger'
 require 'nokogiri'
-require 'active_model'
+require 'activemodel'
 require 'json'
 
 
+require 'infrared/session'
 require 'infrared/utils'
 require 'infrared/logging'
 require 'infrared/development'

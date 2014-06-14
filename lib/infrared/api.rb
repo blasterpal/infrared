@@ -2,6 +2,7 @@ module Infrared
   class API
 
     include Infrared::Utils
+    include Infrared::Session
     include Infrared::Development #add into module elsewhere based ENV
     include Infrared::GhostApi
 
