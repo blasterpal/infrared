@@ -16,6 +16,9 @@ class Infrared::BaseModel
     def find(id)
       connection.post(id)
     end
+    def from_api_data(data)
+      raise "NotImplemented"
+    end
   end
 
 end

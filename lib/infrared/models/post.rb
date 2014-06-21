@@ -8,4 +8,8 @@ class Infrared::Post < Infrared::BaseModel
     @title,@markdown,@status,@tags,@id = title,markdown,status,tags,id
   end
 
+  def from_api_data(data)
+    
+  end
+
 end

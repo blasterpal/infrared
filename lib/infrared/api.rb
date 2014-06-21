@@ -1,36 +1,68 @@
 module Infrared
   class API
-
     include Infrared::Utils
-    include Infrared::Session
     include Infrared::Development #add into module elsewhere based ENV
-    include Infrared::GhostApi
 
     # class BadRequest < Faraday::Error; end
 
-    attr_accessor :connection, :cookies, :headers, :session_id
+    attr_accessor :connection, :cookies, :headers, :session_id, :csrf_token
 
-    def initialize(url=nil,email=nil, password=nil)
-      @connection = conn(url)
+    def initialize(options = {url: nil,email: nil, password: nil})
+      # hash arguments
+      opts = options.symbolize_keys!
+      @connection = initialize_conn(opts[:url])
       @headers = {}
       @cookies = []
       @session_id = {}
-      authorize(email,password)
+      login(opts[:email],opts[:password])
     end
 
-    #extend these method to rmove dupliation later, also use a simple template to add arguments?
-    def posts
+    # Exceptions
+    # URI::BadURIError
+    def initialize_conn(url)
+      @connection = Faraday.new(:url => url) do |faraday|
+        faraday.use :cookie_jar
+        faraday.request  :url_encoded             # form-encode POST params
+        faraday.response :logger                  # log requests to STDOUT
+        faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+      end
+    end
+    
+    # Exceptions
+    # URI::Generic:0x007fe3b09dd578> (NoMethodError) 
+    def login(email,password)
+      response = connection.post do |req|
+        req.url endpoint(:signin)
+        req.headers  = login_headers
+        req.body = {email: email, password: password}
+      end
+      if response.status > 200
+        raise "Not Authorized"
+      else
+        # @session_id = _user_session_from_response(response)
+        # _inject_conn_into_models
+        response
+      end
+    end
+
+    #improve to remove dupliation later, also use a simple template to add arguments?
+    # posts(:all) to get all posts, draft and published
+    # options are :all,:draft,:published
+
+    def posts(status=:published)
+      params = {status: status} #converted to strings
       JSON.parse((connection.get do |req|
+        req.params = params
         req.url (endpoint(:get_posts))
-        req.headers = authenticated_headers
+        req.headers = session_headers
       end).body)
     end
+
     def post(id)
-      JSON.pars(e(connection.get do |req|
+      JSON.parse((connection.get do |req|
         req.url (%{#{endpoint(:get_posts)}#{id}/})
           req.headers = authenticated_headers
       end).body)
-      binding.pry
     end
     def add_post(data)
       res = connection.get do |req|
