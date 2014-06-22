@@ -1,0 +1,663 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:2368/ghost/signin/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0
+      Content-Type:
+      - text/html; charset=utf-8
+      Etag:
+      - '"183794909"'
+      Vary:
+      - Accept-Encoding
+      Set-Cookie:
+      - connect.sid=s%3Ap5DFXbL4KExcQdd4Muhrbt76.D6NKBPAbTHIrE8ZGkzRwTWXMXGcO9lMrJ%2Bn43AhLrFg;
+        Path=/ghost/; Expires=Sun, 22 Jun 2014 13:15:57 GMT; HttpOnly
+      Date:
+      - Sun, 22 Jun 2014 01:15:57 GMT
+      Connection:
+      - keep-alive
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "<!doctype html>\n<!--[if (IE 8)&!(IEMobile)]><html class=\"no-js lt-ie9\"
+        lang=\"en\"><![endif]-->\n<!--[if (gte IE 9)| IEMobile |!(IE)]><!--><html
+        class=\"no-js\" lang=\"en\"><!--<![endif]-->\n<head>\n    <meta http-equiv=\"Content-Type\"
+        content=\"text/html\" charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\"
+        content=\"IE=edge,chrome=1\" />\n    <meta name=\"csrf-param\" content=\"Y728lbn4FesFt3lZJmB+tNb4ppw3EDo5yPbNc=\"
+        />\n\n    <title>Ghost Admin</title>\n\n    <meta name=\"HandheldFriendly\"
+        content=\"True\" />\n    <meta name=\"MobileOptimized\" content=\"320\" />\n
+        \   <meta name=\"viewport\" content=\"user-scalable=no, width=device-width,
+        initial-scale=1, maximum-scale=1, minimal-ui\" />\n\n    <meta http-equiv=\"cleartype\"
+        content=\"on\" />\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\"
+        />\n    <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\"
+        />\n    <meta name=\"apple-mobile-web-app-title\" content=\"Ghost\" />\n\n
+        \   <link rel=\"shortcut icon\" href=\"/favicon.ico\" />\n    <link rel=\"apple-touch-icon-precomposed\"
+        href=\"/ghost/img/touch-icon-iphone.png?v=6282263954\" />\n    <link rel=\"apple-touch-icon-precomposed\"
+        sizes=\"76x76\" href=\"/ghost/img/touch-icon-ipad.png?v=6282263954\" />\n
+        \   <link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/ghost/img/small.png?v=6282263954\"
+        />\n    <link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/ghost/img/medium.png?v=6282263954\"
+        />\n\n    <meta name=\"application-name\" content=\"Ghost\" />\n    <meta
+        name=\"msapplication-TileColor\" content=\"#ffffff\" />\n    <meta name=\"msapplication-square70x70logo\"
+        content=\"/ghost/img/small.png?v=6282263954\" />\n    <meta name=\"msapplication-square150x150logo\"
+        content=\"/ghost/img/medium.png?v=6282263954\" />\n    <meta name=\"msapplication-square310x310logo\"
+        content=\"/ghost/img/large.png?v=6282263954\" />\n\n    <link rel=\"stylesheet\"
+        type=\"text/css\" href=\"//fonts.googleapis.com/css?family=Open+Sans:400,300,700\"
+        />\n    <link rel=\"stylesheet\" href=\"/ghost/css/ghost-ui.min.css?v=6282263954\"
+        />\n</head>\n<body class=\"ghost-login\">\n    \n\n    <main role=\"main\"
+        id=\"main\">\n        \n\n        <aside id=\"notifications\" class=\"notifications\">\n
+        \           \n\n        </aside>\n\n        \n<section class=\"login-box js-login-box\">\n\n</section>\n\n
+        \   </main>\n\n    <div id=\"modal-container\"></div>\n    <div class=\"modal-background
+        fade\"></div>\n\n    <script src=\"/ghost/scripts/vendor.js?v=6282263954\"></script><script
+        src=\"/ghost/scripts/helpers.js?v=6282263954\"></script><script src=\"/ghost/scripts/templates.js?v=6282263954\"></script><script
+        src=\"/ghost/scripts/models.js?v=6282263954\"></script><script src=\"/ghost/scripts/views.js?v=6282263954\"></script>\n</body>\n</html>\n"
+    http_version: 
+  recorded_at: Sun, 22 Jun 2014 01:15:57 GMT
+- request:
+    method: post
+    uri: http://localhost:2368/ghost/signin/
+    body:
+      encoding: UTF-8
+      string: email=hbeaver%40gmail.com&password=password
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Language:
+      - en-US,en;q=0.8
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=UTF-8
+      X-Requested-With:
+      - XMLHttpRequest
+      X-Csrf-Token:
+      - Y728lbn4FesFt3lZJmB+tNb4ppw3EDo5yPbNc=
+      Cookie:
+      - connect.sid=s%3Ap5DFXbL4KExcQdd4Muhrbt76.D6NKBPAbTHIrE8ZGkzRwTWXMXGcO9lMrJ%2Bn43AhLrFg
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '750'
+      Vary:
+      - Accept-Encoding
+      Set-Cookie:
+      - connect.sid=s%3AjpWb3yqOiqPfQX0EThnarZQi.0kq18bR5XgY9a6PivHs8krw0MF1%2BTuEZ%2FLt0T59rpos;
+        Path=/ghost/; Expires=Sun, 22 Jun 2014 13:15:57 GMT; HttpOnly
+      Date:
+      - Sun, 22 Jun 2014 01:15:57 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "redirect": "/ghost/",
+          "userData": {
+            "id": 1,
+            "uuid": "c7c822f0-9bdf-46f3-9bb4-6273269505f6",
+            "name": "Hank Beaver",
+            "slug": "hank-beaver",
+            "password": "$2a$10$3cV00KHTJWOtuU03sH6ULevO5HH2dU9ZbY7yPPyuSOBgGBYzLtnZ.",
+            "email": "hbeaver@gmail.com",
+            "image": "//www.gravatar.com/avatar/3e7125e49df65681624b292c6cc0e92a?d=404",
+            "cover": null,
+            "bio": null,
+            "website": null,
+            "location": null,
+            "accessibility": null,
+            "status": "active",
+            "language": "en_US",
+            "meta_title": null,
+            "meta_description": null,
+            "last_login": "2014-06-22T01:15:57.775Z",
+            "created_at": "2014-06-07T12:31:35.514Z",
+            "created_by": 1,
+            "updated_at": "2014-06-22T01:15:57.776Z",
+            "updated_by": 1
+          }
+        }
+    http_version: 
+  recorded_at: Sun, 22 Jun 2014 01:15:57 GMT
+- request:
+    method: get
+    uri: http://localhost:2368/ghost/api/v0.1/posts/?status=published
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json, text/javascript, */*; q=0.01
+      Accept-Language:
+      - en-US,en;q=0.8
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      X-Requested-With:
+      - XMLHttpRequest
+      X-Csrf-Token:
+      - Y728lbn4FesFt3lZJmB+tNb4ppw3EDo5yPbNc=
+      Cookie:
+      - connect.sid=s%3AjpWb3yqOiqPfQX0EThnarZQi.0kq18bR5XgY9a6PivHs8krw0MF1%2BTuEZ%2FLt0T59rpos
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '886'
+      Etag:
+      - '"-903068320"'
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Sun, 22 Jun 2014 01:15:57 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "posts": [
+            {
+              "id": 1,
+              "uuid": "cad4e543-ab1a-49ae-b65c-296df338d13d",
+              "title": "Post Num 1 - published",
+              "slug": "welcome-to-ghost",
+              "markdown": "You're live! Nice. ",
+              "html": "<p>You're live! Nice. </p>",
+              "image": null,
+              "featured": false,
+              "page": false,
+              "status": "published",
+              "language": "en_US",
+              "meta_title": null,
+              "meta_description": null,
+              "created_at": "2014-06-07T01:32:11.777Z",
+              "created_by": 1,
+              "updated_at": "2014-06-22T01:14:24.371Z",
+              "updated_by": 1,
+              "published_at": "2014-06-07T01:32:11.787Z",
+              "published_by": 1,
+              "tags": [
+                1
+              ],
+              "fields": [],
+              "author": 1
+            }
+          ],
+          "meta": {
+            "pagination": {
+              "page": 1,
+              "limit": 15,
+              "pages": 1,
+              "total": 1,
+              "next": null,
+              "prev": null
+            }
+          }
+        }
+    http_version: 
+  recorded_at: Sun, 22 Jun 2014 01:15:57 GMT
+- request:
+    method: get
+    uri: http://localhost:2368/ghost/api/v0.1/posts/?status=draft
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json, text/javascript, */*; q=0.01
+      Accept-Language:
+      - en-US,en;q=0.8
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      X-Requested-With:
+      - XMLHttpRequest
+      X-Csrf-Token:
+      - Y728lbn4FesFt3lZJmB+tNb4ppw3EDo5yPbNc=
+      Cookie:
+      - connect.sid=s%3AjpWb3yqOiqPfQX0EThnarZQi.0kq18bR5XgY9a6PivHs8krw0MF1%2BTuEZ%2FLt0T59rpos
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '855'
+      Etag:
+      - '"-1088849597"'
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Sun, 22 Jun 2014 01:15:57 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "posts": [
+            {
+              "id": 5,
+              "uuid": "b8451762-0e89-4195-969d-f107bbbda8ab",
+              "title": "Post Num 2 - draft",
+              "slug": "infrared-test",
+              "markdown": "#Title",
+              "html": "<h1 id=\"title\">Title</h1>",
+              "image": null,
+              "featured": false,
+              "page": false,
+              "status": "draft",
+              "language": "en_US",
+              "meta_title": null,
+              "meta_description": null,
+              "created_at": "2014-06-13T17:19:44.161Z",
+              "created_by": 1,
+              "updated_at": "2014-06-22T01:14:09.404Z",
+              "updated_by": 1,
+              "published_at": null,
+              "published_by": null,
+              "tags": [
+                4,
+                8
+              ],
+              "fields": [],
+              "author": 1
+            }
+          ],
+          "meta": {
+            "pagination": {
+              "page": 1,
+              "limit": 15,
+              "pages": 1,
+              "total": 1,
+              "next": null,
+              "prev": null
+            }
+          }
+        }
+    http_version: 
+  recorded_at: Sun, 22 Jun 2014 01:15:57 GMT
+- request:
+    method: get
+    uri: http://localhost:2368/ghost/api/v0.1/posts/?status=all
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json, text/javascript, */*; q=0.01
+      Accept-Language:
+      - en-US,en;q=0.8
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      X-Requested-With:
+      - XMLHttpRequest
+      X-Csrf-Token:
+      - Y728lbn4FesFt3lZJmB+tNb4ppw3EDo5yPbNc=
+      Cookie:
+      - connect.sid=s%3AjpWb3yqOiqPfQX0EThnarZQi.0kq18bR5XgY9a6PivHs8krw0MF1%2BTuEZ%2FLt0T59rpos
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"832628296"'
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Sun, 22 Jun 2014 01:15:57 GMT
+      Connection:
+      - keep-alive
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "posts": [
+            {
+              "id": 5,
+              "uuid": "b8451762-0e89-4195-969d-f107bbbda8ab",
+              "title": "Post Num 2 - draft",
+              "slug": "infrared-test",
+              "markdown": "#Title",
+              "html": "<h1 id=\"title\">Title</h1>",
+              "image": null,
+              "featured": false,
+              "page": false,
+              "status": "draft",
+              "language": "en_US",
+              "meta_title": null,
+              "meta_description": null,
+              "created_at": "2014-06-13T17:19:44.161Z",
+              "created_by": 1,
+              "updated_at": "2014-06-22T01:14:09.404Z",
+              "updated_by": 1,
+              "published_at": null,
+              "published_by": null,
+              "tags": [
+                4,
+                8
+              ],
+              "fields": [],
+              "author": 1
+            },
+            {
+              "id": 1,
+              "uuid": "cad4e543-ab1a-49ae-b65c-296df338d13d",
+              "title": "Post Num 1 - published",
+              "slug": "welcome-to-ghost",
+              "markdown": "You're live! Nice. ",
+              "html": "<p>You're live! Nice. </p>",
+              "image": null,
+              "featured": false,
+              "page": false,
+              "status": "published",
+              "language": "en_US",
+              "meta_title": null,
+              "meta_description": null,
+              "created_at": "2014-06-07T01:32:11.777Z",
+              "created_by": 1,
+              "updated_at": "2014-06-22T01:14:24.371Z",
+              "updated_by": 1,
+              "published_at": "2014-06-07T01:32:11.787Z",
+              "published_by": 1,
+              "tags": [
+                1
+              ],
+              "fields": [],
+              "author": 1
+            }
+          ],
+          "meta": {
+            "pagination": {
+              "page": 1,
+              "limit": 15,
+              "pages": 1,
+              "total": 2,
+              "next": null,
+              "prev": null
+            }
+          }
+        }
+    http_version: 
+  recorded_at: Sun, 22 Jun 2014 01:15:57 GMT
+- request:
+    method: get
+    uri: http://localhost:2368/ghost/api/v0.1/posts/?status=published
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json, text/javascript, */*; q=0.01
+      Accept-Language:
+      - en-US,en;q=0.8
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      X-Requested-With:
+      - XMLHttpRequest
+      X-Csrf-Token:
+      - Y728lbn4FesFt3lZJmB+tNb4ppw3EDo5yPbNc=
+      Cookie:
+      - connect.sid=s%3AjpWb3yqOiqPfQX0EThnarZQi.0kq18bR5XgY9a6PivHs8krw0MF1%2BTuEZ%2FLt0T59rpos
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '886'
+      Etag:
+      - '"-903068320"'
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Sun, 22 Jun 2014 01:18:23 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "posts": [
+            {
+              "id": 1,
+              "uuid": "cad4e543-ab1a-49ae-b65c-296df338d13d",
+              "title": "Post Num 1 - published",
+              "slug": "welcome-to-ghost",
+              "markdown": "You're live! Nice. ",
+              "html": "<p>You're live! Nice. </p>",
+              "image": null,
+              "featured": false,
+              "page": false,
+              "status": "published",
+              "language": "en_US",
+              "meta_title": null,
+              "meta_description": null,
+              "created_at": "2014-06-07T01:32:11.777Z",
+              "created_by": 1,
+              "updated_at": "2014-06-22T01:14:24.371Z",
+              "updated_by": 1,
+              "published_at": "2014-06-07T01:32:11.787Z",
+              "published_by": 1,
+              "tags": [
+                1
+              ],
+              "fields": [],
+              "author": 1
+            }
+          ],
+          "meta": {
+            "pagination": {
+              "page": 1,
+              "limit": 15,
+              "pages": 1,
+              "total": 1,
+              "next": null,
+              "prev": null
+            }
+          }
+        }
+    http_version: 
+  recorded_at: Sun, 22 Jun 2014 01:18:23 GMT
+- request:
+    method: get
+    uri: http://localhost:2368/ghost/api/v0.1/posts/?status=all
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json, text/javascript, */*; q=0.01
+      Accept-Language:
+      - en-US,en;q=0.8
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      X-Requested-With:
+      - XMLHttpRequest
+      X-Csrf-Token:
+      - Y728lbn4FesFt3lZJmB+tNb4ppw3EDo5yPbNc=
+      Cookie:
+      - connect.sid=s%3AjpWb3yqOiqPfQX0EThnarZQi.0kq18bR5XgY9a6PivHs8krw0MF1%2BTuEZ%2FLt0T59rpos
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"832628296"'
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Sun, 22 Jun 2014 01:19:35 GMT
+      Connection:
+      - keep-alive
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "posts": [
+            {
+              "id": 5,
+              "uuid": "b8451762-0e89-4195-969d-f107bbbda8ab",
+              "title": "Post Num 2 - draft",
+              "slug": "infrared-test",
+              "markdown": "#Title",
+              "html": "<h1 id=\"title\">Title</h1>",
+              "image": null,
+              "featured": false,
+              "page": false,
+              "status": "draft",
+              "language": "en_US",
+              "meta_title": null,
+              "meta_description": null,
+              "created_at": "2014-06-13T17:19:44.161Z",
+              "created_by": 1,
+              "updated_at": "2014-06-22T01:14:09.404Z",
+              "updated_by": 1,
+              "published_at": null,
+              "published_by": null,
+              "tags": [
+                4,
+                8
+              ],
+              "fields": [],
+              "author": 1
+            },
+            {
+              "id": 1,
+              "uuid": "cad4e543-ab1a-49ae-b65c-296df338d13d",
+              "title": "Post Num 1 - published",
+              "slug": "welcome-to-ghost",
+              "markdown": "You're live! Nice. ",
+              "html": "<p>You're live! Nice. </p>",
+              "image": null,
+              "featured": false,
+              "page": false,
+              "status": "published",
+              "language": "en_US",
+              "meta_title": null,
+              "meta_description": null,
+              "created_at": "2014-06-07T01:32:11.777Z",
+              "created_by": 1,
+              "updated_at": "2014-06-22T01:14:24.371Z",
+              "updated_by": 1,
+              "published_at": "2014-06-07T01:32:11.787Z",
+              "published_by": 1,
+              "tags": [
+                1
+              ],
+              "fields": [],
+              "author": 1
+            }
+          ],
+          "meta": {
+            "pagination": {
+              "page": 1,
+              "limit": 15,
+              "pages": 1,
+              "total": 2,
+              "next": null,
+              "prev": null
+            }
+          }
+        }
+    http_version: 
+  recorded_at: Sun, 22 Jun 2014 01:19:35 GMT
+recorded_with: VCR 2.9.2

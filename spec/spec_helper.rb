@@ -1,24 +1,29 @@
 #testing
-require 'minitest'
-require 'minitest/spec'
-require 'minitest/autorun'
+require 'rspec'
 require 'webmock'
-require 'webmock/minitest'
+require 'vcr'
 
-require 'sham_rack'
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  c.hook_into :webmock # or :fakeweb
+  c.default_cassette_options = { :record => :new_episodes }
+end
+
+RSpec.configure do |c|
+  c.extend VCR::RSpec::Macros
+end
+
 
 #app
 require  './lib/infrared'
-# require_relative 'support/mock_api'
-require_relative 'support/api_dummy_app'
-require_relative 'support/mock_responses'
 
+# app testing
+# require_relative 'support/mock_api'
+# require_relative 'support/mock_responses'
 # include Mocks::API
 
-include Support::MockResponses
-ShamRack.at('ghost.example.com').rackup do
-   run ApiDummyApp
-end
+# local ghost
+# GHOST_HTTP_HOST = 'http://localhost:
 
 #other
 require 'pry'

@@ -31,16 +31,17 @@ module Infrared
     # Exceptions
     # URI::Generic:0x007fe3b09dd578> (NoMethodError) 
     def login(email,password)
+      r = connection.get(endpoint(:signin))
+      @headers.merge!(default_headers)
+      @headers.merge!(csrf_token_from_response(r)) 
       response = connection.post do |req|
         req.url endpoint(:signin)
-        req.headers  = login_headers
+        req.headers  = @headers
         req.body = {email: email, password: password}
       end
       if response.status > 200
         raise "Not Authorized"
       else
-        # @session_id = _user_session_from_response(response)
-        # _inject_conn_into_models
         response
       end
     end
@@ -65,13 +66,9 @@ module Infrared
       end).body)
     end
     def add_post(data)
-      res = connection.get do |req|
-        req.url endpoint(:add_post)
-        req.headers = authenticated_headers
-      end
       connection.post  do |req|
         req.url endpoint(:add_post)
-        req.headers = api_post_headers(res.body)
+        req.headers = post_headers
         req.body = data
       end
     end

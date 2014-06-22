@@ -2,6 +2,7 @@
 require 'cgi'
 require 'faraday'
 require 'faraday-cookie_jar'
+require 'hashie'
 require 'logger'
 require 'nokogiri'
 require 'active_model'
