@@ -28,11 +28,13 @@ describe Infrared::API do
   end
 
   describe "#add_post" do
+    use_vcr_cassette
     before do
     end
 
     it "should post correct data" do
-    end     
+      
+    end
   end
 
 end

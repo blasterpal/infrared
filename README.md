@@ -1,6 +1,8 @@
 # Infrared
 
-TODO: Write a gem description
+PoC Gem idea. Make a Ruby ActiveSupport/DB Adpater to expose Ghost like
+an API. Thought it might be nice to use Ghost as your marketing/simple
+CMS and integrate into more custom site. 
 
 ## Installation
 
